@@ -65,24 +65,12 @@ jobs:
         run: npm run build
         working-directory: web
 
-      # Deploy step — uncomment and configure for your platform:
-      #
-      # GitHub Pages:
-      # - name: Deploy to GitHub Pages
-      #   uses: actions/deploy-pages@v4
-      #
-      # Netlify:
-      # - name: Deploy to Netlify
-      #   uses: nwtgck/actions-netlify@v3
-      #   with:
-      #     publish-dir: web/dist
-      #     production-deploy: true
-      #   env:
-      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-
-      - name: Upload site artifact
-        uses: actions/upload-artifact@v4
+      - name: Deploy to server
+        uses: burnett01/rsync-deployments@7.0.1
         with:
-          name: site
-          path: web/dist
+          switches: -avz --delete
+          path: web/dist/
+          remote_path: /var/www/holocron/
+          remote_host: ${{ secrets.DEPLOY_HOST }}
+          remote_user: ${{ secrets.DEPLOY_USER }}
+          remote_key: ${{ secrets.DEPLOY_SSH_KEY }}
