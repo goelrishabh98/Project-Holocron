@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Resume">
+  <h1 class="text-3xl font-bold">Resume</h1>
+  <p class="mt-2 text-text-muted">View or download my resume.</p>
+
+  <div class="mt-6">
+    <a
+      href="/resume.pdf"
+      download
+      class="inline-block rounded-lg bg-accent px-4 py-2 text-sm font-medium text-bg hover:bg-accent-hover"
+    >
+      Download PDF
+    </a>
+  </div>
+
+  <div class="mt-8 overflow-hidden rounded-lg border border-border">
+    <iframe
+      src="/resume.pdf"
+      class="h-[80vh] w-full"
+      title="Resume PDF"
+    ></iframe>
+  </div>
+</BaseLayout>

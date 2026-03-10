@@ -1,0 +1,33 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { getVault } from "../lib/vault";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const vault = getVault();
+const { title, description } = Astro.props;
+const pageTitle = title ? `${title} | ${vault.meta.name}` : vault.meta.name;
+const pageDescription = description ?? vault.meta.summary;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={pageDescription} />
+    <title>{pageTitle}</title>
+    <link rel="stylesheet" href="/tailwind.css" />
+  </head>
+  <body class="min-h-screen bg-bg text-text">
+    <Header />
+    <main class="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

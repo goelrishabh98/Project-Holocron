@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Holocron Vault",
+  "description": "Schema for the Project Holocron data vault (vault.yaml)",
+  "type": "object",
+  "required": ["meta", "education", "experience", "skills"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["name", "title", "email", "location", "summary"],
+      "properties": {
+        "name": { "type": "string" },
+        "title": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "phone": { "type": "string" },
+        "location": { "type": "string" },
+        "website": { "type": "string" },
+        "linkedin": { "type": "string" },
+        "github": { "type": "string" },
+        "summary": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "education": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["institution", "degree", "date"],
+        "properties": {
+          "institution": { "type": "string" },
+          "degree": { "type": "string" },
+          "date": { "type": "string" },
+          "gpa": { "type": "string" },
+          "highlights": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "experience": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["company", "role", "date", "location", "bullets"],
+        "properties": {
+          "company": { "type": "string" },
+          "role": { "type": "string" },
+          "date": { "type": "string" },
+          "location": { "type": "string" },
+          "bullets": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "skills": {
+      "type": "object",
+      "required": ["categories"],
+      "properties": {
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "items"],
+            "properties": {
+              "name": { "type": "string" },
+              "items": {
+                "type": "array",
+                "items": { "type": "string" },
+                "minItems": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

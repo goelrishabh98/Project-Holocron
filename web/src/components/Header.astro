@@ -1,0 +1,17 @@
+---
+import { getVault } from "../lib/vault";
+const vault = getVault();
+---
+
+<header class="border-b border-border">
+  <nav class="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+    <a href="/" class="text-lg font-bold text-accent hover:text-accent-hover">
+      {vault.meta.name}
+    </a>
+    <ul class="flex gap-6 text-sm">
+      <li><a href="/projects" class="text-text-muted hover:text-text">Projects</a></li>
+      <li><a href="/publications" class="text-text-muted hover:text-text">Publications</a></li>
+      <li><a href="/resume" class="text-text-muted hover:text-text">Resume</a></li>
+    </ul>
+  </nav>
+</header>

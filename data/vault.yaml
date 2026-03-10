@@ -1,0 +1,72 @@
+meta:
+  name: "Rishabh Goel"
+  title: "PhD Candidate in Robotics"
+  email: "rishgoel98@gmail.com"
+
+  location: "Atlanta, GA"
+  website: "rishgoel.com"
+  linkedin: "linkedin.com/in/rishgoel98"
+  github: "github.com/goelrishabh98"
+  summary: "Robotics PhD candidate at Georgia Tech with expertise in embedded systems, battery-free computing, soft actuators, and hardware prototyping. Research spans energy-harvesting UAVs, wearable health sensing, and machine learning for failure detection."
+
+education:
+  - institution: "Georgia Institute of Technology"
+    degree: "PhD in Robotics"
+    date: "2022 - Present"
+    location: "Atlanta, GA"
+    highlights: []
+  - institution: "University of Michigan"
+    degree: "B.S.E. in Electrical Engineering & B.S.E. in Computer Science"
+    date: "2017 - 2021"
+    location: "Ann Arbor, MI"
+    highlights: []
+
+experience:
+  - company: "Dolby Laboratories ATG"
+    role: "PhD Research Intern"
+    date: "2025"
+    location: "San Francisco, CA"
+    bullets:
+      - "Developed an acoustic sensing technique to extract heartbeats using only the speakers and microphones on Meta Ray-Ban smart glasses"
+  - company: "Georgia Institute of Technology"
+    role: "Research Assistant"
+    date: "2022 - Present"
+    location: "Atlanta, GA"
+    bullets:
+      - "Published in Nature Scientific Reports on a battery-free, solar-powered fixed-wing UAV"
+      - "Developed an ML algorithm to detect failure in soft actuators (in review at Nature Communications)"
+      - "Designed HealthHub, a wearable health prototyping platform, published at IEEE BSN 2024"
+      - "Created PuffEM, an e-cigarette sleeve for estimating nicotine intake, presented at IEEE CHASE 2025"
+      - "Designed hardware and electronics for Protean, a heterogeneous battery-free computing platform, published at ACM SenSys 2022"
+
+skills:
+  categories:
+    - name: "Languages"
+      items: ["Python", "C++", "C", "MATLAB"]
+    - name: "ML & Data"
+      items: ["PyTorch", "Model Training", "Data Pipelines", "Feature Extraction"]
+    - name: "Hardware & Electronics"
+      items: ["PCB Design", "Altium", "Eagle", "KiCad", "SMD Soldering", "Reflow Soldering"]
+    - name: "Embedded Systems"
+      items: ["Microcontrollers", "FPGA", "Sensor Fusion", "Battery-Free Systems"]
+
+patents:
+  - title: "Batteryless Fixed-Wing Unmanned Aerial Vehicles"
+    status: "submitted"
+    year: 2025
+  - title: "Battery-free Unmanned Aerial Vehicles"
+    number: "US20230391479A1"
+    status: "Active"
+    year: 2023
+
+entrepreneurship:
+  - "Finalist for Sustain X Presentation competition"
+  - "Invited to the highly selective Create X Startup launch summer program"
+  - "Demoed and pitched prototype and startup at Demo Day to 2000 attendees"
+
+awards:
+  - "2nd Place for Create X Idea to Prototype showcase"
+  - "Finalist for Sustain X Pitch competition for sustainability-focused startups"
+  - "Selected for Create X Summer Program"
+  - "3rd best Solar car in the world - World Solar Challenge, Australia 2019"
+  - "Best Solar Car in America and 2nd best in the world - American Solar Car Race 2018"

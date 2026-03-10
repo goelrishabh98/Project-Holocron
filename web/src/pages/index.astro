@@ -1,0 +1,95 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import SkillBadge from "../components/SkillBadge.astro";
+import { getVault } from "../lib/vault";
+import { getCollection } from "astro:content";
+
+const vault = getVault();
+const allProjects = await getCollection("projects");
+const featured = allProjects.filter((p) => p.data.featured);
+---
+
+<BaseLayout>
+  <section class="py-12 sm:py-20">
+    <h1 class="text-4xl font-bold sm:text-5xl">{vault.meta.name}</h1>
+    <p class="mt-2 text-xl text-accent">{vault.meta.title}</p>
+    <p class="mt-4 max-w-2xl text-text-muted">{vault.meta.summary}</p>
+    <div class="mt-6 flex gap-4">
+      <a href="/resume" class="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-bg hover:bg-accent-hover">
+        View Resume
+      </a>
+      <a href="/projects" class="rounded-lg border border-border px-4 py-2 text-sm font-medium text-text hover:bg-bg-hover">
+        Browse Projects
+      </a>
+    </div>
+  </section>
+
+  {featured.length > 0 && (
+    <section class="py-8">
+      <h2 class="mb-6 text-2xl font-bold">Featured Projects</h2>
+      <div class="grid gap-4 sm:grid-cols-2">
+        {featured.map((project) => (
+          <ProjectCard
+            title={project.data.title}
+            slug={project.data.slug}
+            tagline={project.data.tagline}
+            tags={project.data.tags}
+            status={project.data.status}
+          />
+        ))}
+      </div>
+    </section>
+  )}
+
+  <section class="py-8">
+    <h2 class="mb-6 text-2xl font-bold">Skills</h2>
+    <div class="grid gap-6 sm:grid-cols-2">
+      {vault.skills.categories.map((cat) => (
+        <SkillBadge name={cat.name} items={cat.items} />
+      ))}
+    </div>
+  </section>
+
+  {vault.patents.length > 0 && (
+    <section class="py-8">
+      <h2 class="mb-6 text-2xl font-bold">Patents</h2>
+      <div class="space-y-4">
+        {vault.patents.map((pat) => (
+          <div class="rounded-lg border border-border bg-bg-card p-4">
+            <div class="flex items-start justify-between gap-2">
+              <h3 class="font-semibold text-text">{pat.title}</h3>
+              <span class="shrink-0 text-sm text-text-muted">{pat.year}</span>
+            </div>
+            <div class="mt-1 flex gap-3 text-sm text-text-muted">
+              <span class="capitalize">{pat.status}</span>
+              {pat.number && <span>{pat.number}</span>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
+  {vault.entrepreneurship.length > 0 && (
+    <section class="py-8">
+      <h2 class="mb-6 text-2xl font-bold">Entrepreneurship</h2>
+      <ul class="space-y-2">
+        {vault.entrepreneurship.map((item) => (
+          <li class="text-text-muted">{item}</li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {vault.awards.length > 0 && (
+    <section class="py-8">
+      <h2 class="mb-6 text-2xl font-bold">Awards</h2>
+      <ul class="space-y-2">
+        {vault.awards.map((award) => (
+          <li class="text-text-muted">{award}</li>
+        ))}
+      </ul>
+    </section>
+  )}
+</BaseLayout>
