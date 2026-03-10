@@ -45,6 +45,4 @@ resume.pdf
 
 # --- IDEs ---
 .vscode/
-.idea/
-*.swp
-*.swo
+
