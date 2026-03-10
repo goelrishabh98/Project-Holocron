@@ -22,6 +22,16 @@ This file tracks the "Future Vision" for Project Holocron. These tasks range fro
 * [ ] **Project filtering by tags:** Allow filtering on the projects listing page
 * [ ] **Google Scholar Integration:** Automate the "Citations" count in the `vault.yaml` by fetching data from your Scholar profile
 
+## 🚀 Deploy (Personal Server + Nginx)
+
+* [ ] **Generate deploy key:** `ssh-keygen -t ed25519 -f deploy_key`
+* [ ] **Add public key to server:** Append `deploy_key.pub` to `~/.ssh/authorized_keys` on your server
+* [ ] **Add GitHub secrets:** Set `DEPLOY_HOST`, `DEPLOY_USER`, and `DEPLOY_SSH_KEY` in repo Settings > Secrets
+* [ ] **Create Nginx site config:** Add `/etc/nginx/sites-available/holocron` with root `/var/www/holocron/`, symlink to `sites-enabled/`
+* [ ] **Create web root:** `sudo mkdir -p /var/www/holocron && sudo chown deploy-user:deploy-user /var/www/holocron`
+* [ ] **Set up HTTPS:** `sudo certbot --nginx -d yourdomain.com`
+* [ ] **Test pipeline:** Push to `main` and verify the site is live at your domain
+
 ## 🟢 Low Priority
 
 * [ ] **Solar Car Retrospective:** A dedicated interactive page mapping the World Solar Challenge route across Australia with embedded technical specs from your EE lead role
