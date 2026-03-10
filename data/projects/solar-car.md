@@ -4,7 +4,7 @@ slug: "solar-car"
 tagline: "Race Electrical Lead for the UM Solar Car Team"
 date: 2019-06-01
 tags: ["solar", "electronics", "PCB", "battery management"]
-featured: false
+featured: True
 status: "completed"
 ---
 
