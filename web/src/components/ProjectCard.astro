@@ -7,10 +7,12 @@ interface Props {
   status: string;
 }
 
+import { url } from "../lib/url";
+
 const { title, slug, tagline, tags, status } = Astro.props;
 ---
 
-<a href={`/projects/${slug}`} class="group block rounded-lg border border-border bg-bg-card p-6 transition-colors hover:bg-bg-hover">
+<a href={url(`/projects/${slug}`)} class="group block rounded-lg border border-border bg-bg-card p-6 transition-colors hover:bg-bg-hover">
   <div class="flex items-start justify-between gap-2">
     <h3 class="text-lg font-semibold text-text group-hover:text-accent">{title}</h3>
     <span class="shrink-0 rounded-full bg-bg px-2 py-0.5 text-xs text-text-muted">{status}</span>

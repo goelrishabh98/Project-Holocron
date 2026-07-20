@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection, render } from "astro:content";
+import { url } from "../../lib/url";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
@@ -16,7 +17,7 @@ const { Content } = await render(project);
 
 <BaseLayout title={project.data.title} description={project.data.tagline}>
   <article class="py-4">
-    <a href="/projects" class="text-sm text-text-muted hover:text-accent">&larr; All Projects</a>
+    <a href={url("/projects")} class="text-sm text-text-muted hover:text-accent">&larr; All Projects</a>
 
     <header class="mt-4">
       <div class="flex items-center gap-3">

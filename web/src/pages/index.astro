@@ -4,6 +4,7 @@ import ProjectCard from "../components/ProjectCard.astro";
 import SkillBadge from "../components/SkillBadge.astro";
 import { getVault } from "../lib/vault";
 import { getCollection } from "astro:content";
+import { url } from "../lib/url";
 
 const vault = getVault();
 const allProjects = await getCollection("projects");
@@ -16,10 +17,10 @@ const featured = allProjects.filter((p) => p.data.featured);
     <p class="mt-2 text-xl text-accent">{vault.meta.title}</p>
     <p class="mt-4 max-w-2xl text-text-muted">{vault.meta.summary}</p>
     <div class="mt-6 flex gap-4">
-      <a href="/resume" class="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-bg hover:bg-accent-hover">
+      <a href={url("/resume")} class="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-bg hover:bg-accent-hover">
         View Resume
       </a>
-      <a href="/projects" class="rounded-lg border border-border px-4 py-2 text-sm font-medium text-text hover:bg-bg-hover">
+      <a href={url("/projects")} class="rounded-lg border border-border px-4 py-2 text-sm font-medium text-text hover:bg-bg-hover">
         Browse Projects
       </a>
     </div>

@@ -38,6 +38,13 @@ jobs:
   build-deploy-site:
     runs-on: ubuntu-latest
     needs: build-resume
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -65,12 +72,11 @@ jobs:
         run: npm run build
         working-directory: web
 
-      - name: Deploy to server
-        uses: burnett01/rsync-deployments@7.0.1
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          switches: -avz --delete
-          path: web/dist/
-          remote_path: /var/www/holocron/
-          remote_host: ${{ secrets.DEPLOY_HOST }}
-          remote_user: ${{ secrets.DEPLOY_USER }}
-          remote_key: ${{ secrets.DEPLOY_SSH_KEY }}
+          path: web/dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
