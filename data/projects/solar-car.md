@@ -6,6 +6,7 @@ date: 2019-06-01
 tags: ["solar", "electronics", "PCB", "battery management"]
 featured: True
 status: "completed"
+category: "personal"
 ---
 
 ## Overview

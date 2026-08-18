@@ -20,8 +20,11 @@ const featured = allProjects.filter((p) => p.data.featured);
       <a href={url("/resume")} class="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-bg hover:bg-accent-hover">
         View Resume
       </a>
+      <a href={url("/research")} class="rounded-lg border border-border px-4 py-2 text-sm font-medium text-text hover:bg-bg-hover">
+        Research
+      </a>
       <a href={url("/projects")} class="rounded-lg border border-border px-4 py-2 text-sm font-medium text-text hover:bg-bg-hover">
-        Browse Projects
+        Projects
       </a>
     </div>
   </section>
@@ -37,6 +40,7 @@ const featured = allProjects.filter((p) => p.data.featured);
             tagline={project.data.tagline}
             tags={project.data.tags}
             status={project.data.status}
+            category={project.data.category}
           />
         ))}
       </div>

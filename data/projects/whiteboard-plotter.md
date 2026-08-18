@@ -6,6 +6,7 @@ date: 2019-01-01
 tags: ["FPGA", "embedded", "hardware"]
 featured: false
 status: "completed"
+category: "personal"
 ---
 
 ## Overview

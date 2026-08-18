@@ -12,6 +12,7 @@ const projects = defineCollection({
     thumbnail: z.string().optional(),
     featured: z.boolean().default(false),
     status: z.enum(["active", "completed", "archived"]).default("active"),
+    category: z.enum(["research", "personal"]).default("personal"),
     repo: z.string().url().optional(),
   }),
 });

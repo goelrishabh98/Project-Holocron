@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { getCollection } from "astro:content";
+import { url } from "../lib/url";
+
+const projects = await getCollection("projects");
+const research = projects
+  .filter((p) => p.data.category === "research")
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<BaseLayout
+  title="Research"
+  description="Research projects in embedded systems, battery-free computing, soft actuators, and acoustic sensing."
+>
+  <h1 class="text-3xl font-bold">Research</h1>
+  <p class="mt-2 max-w-2xl text-text-muted">
+    Work from my PhD and research roles &mdash; embedded systems, battery-free
+    computing, soft actuators, and acoustic sensing. Peer-reviewed output lives on
+    the <a href={url("/publications")} class="text-accent hover:text-accent-hover">publications</a> page.
+  </p>
+
+  {research.length > 0 ? (
+    <div class="mt-8 grid gap-4 sm:grid-cols-2">
+      {research.map((project) => (
+        <ProjectCard
+          title={project.data.title}
+          slug={project.data.slug}
+          tagline={project.data.tagline}
+          tags={project.data.tags}
+          status={project.data.status}
+        />
+      ))}
+    </div>
+  ) : (
+    <p class="mt-8 text-text-muted">No research projects yet.</p>
+  )}
+</BaseLayout>

@@ -6,6 +6,7 @@ date: 2021-01-01
 tags: ["robotics", "autonomous", "sensor fusion", "electronics"]
 featured: false
 status: "completed"
+category: "personal"
 ---
 
 ## Overview

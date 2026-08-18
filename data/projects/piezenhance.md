@@ -6,6 +6,7 @@ date: 2024-01-01
 tags: ["deep learning", "audio", "signal processing"]
 featured: false
 status: "completed"
+category: "personal"
 ---
 
 ## Overview

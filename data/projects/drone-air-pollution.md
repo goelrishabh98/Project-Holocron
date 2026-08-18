@@ -6,6 +6,7 @@ date: 2023-01-01
 tags: ["drones", "simulation", "path planning"]
 featured: false
 status: "completed"
+category: "personal"
 ---
 
 ## Overview
