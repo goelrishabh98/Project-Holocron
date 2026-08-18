@@ -3,6 +3,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { getVault } from "../lib/vault";
 import { url } from "../lib/url";
+import "../styles/tailwind.css";
 
 interface Props {
   title?: string;
@@ -22,7 +23,6 @@ const pageDescription = description ?? vault.meta.summary;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={pageDescription} />
     <title>{pageTitle}</title>
-    <link rel="stylesheet" href={url("/tailwind.css")} />
   </head>
   <body class="min-h-screen bg-bg text-text">
     <Header />
