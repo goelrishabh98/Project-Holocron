@@ -6,7 +6,7 @@ export interface Meta {
   name: string;
   title: string;
   email: string;
-  phone: string;
+  phone?: string;
   location: string;
   website: string;
   linkedin: string;
@@ -18,6 +18,7 @@ export interface Education {
   institution: string;
   degree: string;
   date: string;
+  location?: string;
   gpa?: string;
   highlights: string[];
 }

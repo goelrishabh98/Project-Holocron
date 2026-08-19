@@ -2,6 +2,8 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import SkillBadge from "../components/SkillBadge.astro";
+import ExperienceItem from "../components/ExperienceItem.astro";
+import EducationItem from "../components/EducationItem.astro";
 import { getVault } from "../lib/vault";
 import { getVisibleProjects } from "../lib/projects";
 import { url } from "../lib/url";
@@ -41,6 +43,41 @@ const featured = allProjects.filter((p) => p.data.featured);
             tags={project.data.tags}
             status={project.data.status}
             category={project.data.category}
+          />
+        ))}
+      </div>
+    </section>
+  )}
+
+  {vault.experience.length > 0 && (
+    <section class="py-8">
+      <h2 class="mb-6 text-2xl font-bold">Experience</h2>
+      <div class="space-y-4">
+        {vault.experience.map((job) => (
+          <ExperienceItem
+            company={job.company}
+            role={job.role}
+            date={job.date}
+            location={job.location}
+            bullets={job.bullets ?? []}
+          />
+        ))}
+      </div>
+    </section>
+  )}
+
+  {vault.education.length > 0 && (
+    <section class="py-8">
+      <h2 class="mb-6 text-2xl font-bold">Education</h2>
+      <div class="space-y-4">
+        {vault.education.map((edu) => (
+          <EducationItem
+            institution={edu.institution}
+            degree={edu.degree}
+            date={edu.date}
+            location={edu.location}
+            gpa={edu.gpa}
+            highlights={edu.highlights ?? []}
           />
         ))}
       </div>
