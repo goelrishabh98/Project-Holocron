@@ -7,6 +7,7 @@ tags: ["energy harvesting", "power management", "PCB", "battery-free", "embedded
 featured: false
 status: "active"
 category: "research"
+draft: true
 ---
 
 <!-- SCAFFOLD — review before publishing.

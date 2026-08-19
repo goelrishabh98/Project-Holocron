@@ -7,6 +7,7 @@ tags: ["acoustic sensing", "machine learning", "signal processing", "iOS", "PCB"
 featured: false
 status: "active"
 category: "research"
+draft: true
 ---
 
 <!-- SCAFFOLD — review before publishing.

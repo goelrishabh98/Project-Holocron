@@ -1,13 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
-import { getCollection } from "astro:content";
+import { getProjectsByCategory } from "../lib/projects";
 import { url } from "../lib/url";
 
-const projects = await getCollection("projects");
-const research = projects
-  .filter((p) => p.data.category === "research")
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const research = await getProjectsByCategory("research");
 ---
 
 <BaseLayout
@@ -30,6 +27,7 @@ const research = projects
           tagline={project.data.tagline}
           tags={project.data.tags}
           status={project.data.status}
+          draft={project.data.draft}
         />
       ))}
     </div>

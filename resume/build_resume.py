@@ -25,12 +25,23 @@ def load_vault():
 
 
 def load_markdown_frontmatter(directory):
-    """Load frontmatter from all .md files in a directory."""
+    """Load frontmatter from all .md files in a directory.
+
+    Entries marked `draft: true` are skipped. The generated PDF is published at
+    /resume.pdf, so an unpublished project must stay out of it for the same
+    reason it stays off the site.
+    """
     entries = []
+    skipped = 0
     pattern = os.path.join(DATA_DIR, directory, "*.md")
     for filepath in sorted(glob.glob(pattern)):
         post = frontmatter.load(filepath)
+        if post.metadata.get("draft", False):
+            skipped += 1
+            continue
         entries.append(dict(post.metadata))
+    if skipped:
+        print(f"  {directory}: skipped {skipped} draft entr{'y' if skipped == 1 else 'ies'}")
     return entries
 
 

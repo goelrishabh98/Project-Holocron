@@ -6,17 +6,23 @@ interface Props {
   tags: string[];
   status: string;
   category?: string;
+  draft?: boolean;
 }
 
 import { url } from "../lib/url";
 
-const { title, slug, tagline, tags, status, category } = Astro.props;
+const { title, slug, tagline, tags, status, category, draft } = Astro.props;
 ---
 
 <a href={url(`/projects/${slug}`)} class="group block rounded-lg border border-border bg-bg-card p-6 transition-colors hover:bg-bg-hover">
   <div class="flex items-start justify-between gap-2">
     <h3 class="text-lg font-semibold text-text group-hover:text-accent">{title}</h3>
     <div class="flex shrink-0 items-center gap-2">
+      {draft && (
+        <span class="rounded-full bg-amber-400/15 px-2 py-0.5 text-xs font-medium text-amber-400">
+          Draft &mdash; dev only
+        </span>
+      )}
       {category && (
         <span class="rounded-full border border-accent/40 px-2 py-0.5 text-xs capitalize text-accent">{category}</span>
       )}

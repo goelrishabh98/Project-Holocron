@@ -7,6 +7,7 @@ tags: ["embedded", "analog design", "PCB", "instrumentation", "soft robotics"]
 featured: false
 status: "active"
 category: "research"
+draft: true
 ---
 
 <!-- SCAFFOLD — review before publishing.

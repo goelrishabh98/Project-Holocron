@@ -3,11 +3,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import SkillBadge from "../components/SkillBadge.astro";
 import { getVault } from "../lib/vault";
-import { getCollection } from "astro:content";
+import { getVisibleProjects } from "../lib/projects";
 import { url } from "../lib/url";
 
 const vault = getVault();
-const allProjects = await getCollection("projects");
+const allProjects = await getVisibleProjects();
 const featured = allProjects.filter((p) => p.data.featured);
 ---
 
