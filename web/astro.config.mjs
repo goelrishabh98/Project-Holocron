@@ -3,8 +3,7 @@ import react from "@astrojs/react";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  site: "https://goelrishabh98.github.io",
-  base: "/Project-Holocron",
+  site: "https://rishgoel.com",
   integrations: [react()],
   vite: {
     plugins: [tailwindcss()],
